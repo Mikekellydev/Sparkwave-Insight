@@ -1,0 +1,13 @@
+[project]
+name = "sparkwave-insight"
+version = "0.1.0"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.8",
+  "SQLAlchemy>=2.0",
+  "psycopg[binary]>=3.2",
+  "alembic>=1.13",
+  "python-dotenv>=1.0",
+  "httpx>=0.27",
+]

@@ -1,0 +1,73 @@
+:root {
+  /* TODO: put your site colors here */
+  --brand-primary: #0ea5e9;   /* primary buttons, highlights */
+  --brand-secondary: #1e293b; /* headers/nav background */
+  --brand-accent: #22c55e;    /* success/accents */
+  --brand-bg: #0b1220;        /* page background (dark) */
+  --brand-surface: #111827;   /* cards/panels */
+  --brand-text: #e5e7eb;      /* body text */
+  --brand-muted: #94a3b8;     /* subtle text */
+}
+
+/* ---- Swagger UI theming ---- */
+body, .swagger-ui .scheme-container {
+  background: var(--brand-bg) !important;
+  color: var(--brand-text) !important;
+}
+
+.swagger-ui .topbar {
+  background-color: var(--brand-secondary) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.swagger-ui .topbar .link span {
+  color: var(--brand-text) !important;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+
+.swagger-ui .info .title,
+.swagger-ui .opblock-tag.no-desc span {
+  color: var(--brand-text) !important;
+}
+
+.swagger-ui .markdown p,
+.swagger-ui .info .base-url {
+  color: var(--brand-muted) !important;
+}
+
+/* buttons & accents */
+.swagger-ui .btn,
+.swagger-ui .authorize__btn,
+.swagger-ui .btn.try-out__btn {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  color: #0b1220 !important;
+}
+.swagger-ui .btn:hover { filter: brightness(1.1); }
+
+/* operation blocks */
+.swagger-ui .opblock {
+  background: var(--brand-surface) !important;
+  border-color: rgba(255,255,255,.08) !important;
+}
+.swagger-ui .opblock .opblock-summary {
+  background: rgba(255,255,255,.02) !important;
+  color: var(--brand-text) !important;
+}
+.swagger-ui .tab li {
+  color: var(--brand-muted) !important;
+}
+.swagger-ui .model-title, .swagger-ui .prop-format,
+.swagger-ui .microlight, .swagger-ui .prop-type {
+  color: var(--brand-muted) !important;
+}
+
+/* code blocks */
+.swagger-ui .model-box, .swagger-ui .response-col_description__inner,
+.swagger-ui .responses-table.live-responses-table {
+  background: rgba(255,255,255,.02) !important;
+}
+
+/* links */
+.swagger-ui a { color: var(--brand-primary) !important; }

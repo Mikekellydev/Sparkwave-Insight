@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: sparkwave
+      POSTGRES_PASSWORD: sparkwave
+      POSTGRES_DB: sparkwave_insight
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sparkwave -d sparkwave_insight"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build: .
+    image: sparkwave-insight:0.1.3
+    environment:
+      DATABASE_URL: postgresql+psycopg://sparkwave:sparkwave@db:5432/sparkwave_insight
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
