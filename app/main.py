@@ -6,7 +6,7 @@ from fastapi.openapi.docs import get_swagger_ui_html, get_redoc_html
 from sqlalchemy.orm import Session
 
 from .db import Base, engine, SessionLocal
-from .routers import assets, findings, health
+from .routers import assets, findings, health, feeds
 
 app = FastAPI(
     title="Sparkwave-Insight",
@@ -83,6 +83,7 @@ async def brand_swagger_css(request: Request, call_next):
 app.include_router(health.router)
 app.include_router(assets.router)
 app.include_router(findings.router)
+app.include_router(feeds.router)
 
 from .routers import assets, findings, health, feeds
 # ...
