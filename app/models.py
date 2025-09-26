@@ -10,7 +10,12 @@ class Asset(Base):
 
 class Vulnerability(Base):
     __tablename__ = "vulnerabilities"
-    id = Column(String, primary_key=True)
+    id = Column(String, primary_key=True)  # CVE-YYYY-NNNN
+    title = Column(String)
+    cvss_base = Column(Float, default=0)
+    epss = Column(Float, default=0)        # likelihood (0..1)
+    known_exploited = Column(Boolean, default=False)
+    refs = Column(JSON, default={})
 
 class Finding(Base):
     __tablename__ = "findings"

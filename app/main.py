@@ -83,3 +83,7 @@ async def brand_swagger_css(request: Request, call_next):
 app.include_router(health.router)
 app.include_router(assets.router)
 app.include_router(findings.router)
+
+from .routers import assets, findings, health, feeds
+# ...
+app.include_router(feeds.router)
