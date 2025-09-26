@@ -7,7 +7,7 @@ from .nvd_seed import SAMPLE_NVD
 async def refresh_vulns(db: Session):
     kev = await get_kev_set()
     epss = await get_epss_map()
-    for cve, meta in SAMPLE_NVD.items():  # replace with real NVD later
+    for cve, meta in SAMPLE_NVD.items():
         v = db.get(Vulnerability, cve) or Vulnerability(id=cve)
         v.title = meta["title"]
         v.cvss_base = meta.get("cvss", 0.0)
